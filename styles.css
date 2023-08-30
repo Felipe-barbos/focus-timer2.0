@@ -1,0 +1,147 @@
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+:root {
+  --hue: 194;
+  --bg-color: hsl(var(--hue), 5%, 7%);
+  --text-color: hsla(var(--hue), 40%, 98%);
+  --primary-color: hsl(var(--hue), 100%, 63%);
+  --controls-bg-color: hsl(var(--hue), 0%, 14%);
+  --button-secondary: hsla(var(--hue), 40%, 98%);
+
+  --bg-pause: #a53e3e;
+
+  font-size: clamp(40%, 1% + 2vw, 62.5%);
+}
+
+html.light {
+  --bg-color: hsla(var(--hue), 40%, 98%);
+  --text-color: #323238;
+  --primary-color: hsl(var(--hue), 100%, 63%);
+  --controls-bg-color: hsl(var(--hue), 0%, 14%);
+
+}
+
+html.light .ph-sun,
+html:not(.light) .ph-moon {
+  display: none;
+}
+
+#toggle-mode {
+  position: absolute;
+  top: 3.2rem;
+  right: 3.2rem;
+  font-size: 3.2rem;
+  line-height: 0;
+
+  color: var(--text-color);
+
+
+}
+
+.sr-only,
+.buttonMusic {
+  width: 1px;
+  height: 1px;
+  position: absolute;
+  overflow: hidden;
+
+  margin: -1px;
+  padding: 0px;
+  border: 0;
+  appearance: none;
+}
+
+body {
+  background-color: var(--bg-color);
+  color: var(--text-color);
+  display: grid;
+  place-content: center;
+  height: 100vh;
+}
+
+.app {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-items: center;
+  gap: 2rem;
+}
+
+.flex {
+  display: flex;
+}
+
+.clock {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+
+#timer {
+  font-size: 9.6rem;
+  font-weight: bold;
+  font-family: sans-serif;
+}
+
+#controls {
+  margin-top: 1.6rem;
+  padding: 2.2rem 4rem;
+  gap: 1.6rem;
+  border-radius: 999rem;
+}
+
+button {
+  background-color: transparent;
+  border: 0;
+  color: var(--text-color);
+
+  cursor: pointer;
+
+  font-size: 6.4rem;
+
+}
+
+#controlsSound {
+  display: grid;
+  grid-template-columns: repeat(2, 1fr);
+  gap: 2rem;
+}
+
+#controlsSound button {
+  background-color: #d8d8dc;
+  padding: 2.4rem;
+  border: 0;
+  color: var(--text-color);
+
+  cursor: pointer;
+
+  font-size: 6.4rem;
+
+  border-radius: 1.5rem;
+
+  transition: .3s;
+}
+
+.pauseButton {
+  color: var(--bg-pause);
+}
+
+
+/* controls */
+
+.running .ph-play-circle,
+.running .ph-timer,
+.music-on .ph-speaker-none,
+html:not(.running) .ph-pause-circle {
+  display: none;
+}
+
+@media (min-width: 1024px) {
+  .app {
+    flex-direction: row;
+  }
+}
